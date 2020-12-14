@@ -42,16 +42,16 @@ setting CMake options and regenerating, rather than editing directly.
 // not actually include them in the final distribution (or some other
 // event that we do not have control over)
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_BUILD_RENDERER_NULL
-#cmakedefine CEGUI_BUILD_RENDERER_OPENGL
-#cmakedefine CEGUI_BUILD_RENDERER_OPENGL3
-#cmakedefine CEGUI_BUILD_RENDERER_OGRE
-#cmakedefine CEGUI_BUILD_RENDERER_IRRLICHT
-#cmakedefine CEGUI_BUILD_RENDERER_DIRECT3D9
-#cmakedefine CEGUI_BUILD_RENDERER_DIRECT3D10
-#cmakedefine CEGUI_BUILD_RENDERER_DIRECT3D11
-#cmakedefine CEGUI_BUILD_RENDERER_DIRECTFB
-#cmakedefine CEGUI_BUILD_RENDERER_OPENGLES
+/* #undef CEGUI_BUILD_RENDERER_NULL */
+#define CEGUI_BUILD_RENDERER_OPENGL
+/* #undef CEGUI_BUILD_RENDERER_OPENGL3 */
+/* #undef CEGUI_BUILD_RENDERER_OGRE */
+/* #undef CEGUI_BUILD_RENDERER_IRRLICHT */
+/* #undef CEGUI_BUILD_RENDERER_DIRECT3D9 */
+/* #undef CEGUI_BUILD_RENDERER_DIRECT3D10 */
+/* #undef CEGUI_BUILD_RENDERER_DIRECT3D11 */
+/* #undef CEGUI_BUILD_RENDERER_DIRECTFB */
+/* #undef CEGUI_BUILD_RENDERER_OPENGLES */
 
 //////////////////////////////////////////////////////////////////////////
 // The following define what image codec modules /should/ be available
@@ -59,13 +59,13 @@ setting CMake options and regenerating, rather than editing directly.
 // not actually include them in the final distribution (or some other
 // event that we do not have control over)
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_BUILD_IMAGECODEC_SILLY
-#cmakedefine CEGUI_BUILD_IMAGECODEC_DEVIL
-#cmakedefine CEGUI_BUILD_IMAGECODEC_FREEIMAGE
-#cmakedefine CEGUI_BUILD_IMAGECODEC_CORONA
-#cmakedefine CEGUI_BUILD_IMAGECODEC_STB
-#cmakedefine CEGUI_BUILD_IMAGECODEC_TGA
-#cmakedefine CEGUI_BUILD_IMAGECODEC_PVR
+#define CEGUI_BUILD_IMAGECODEC_SILLY
+/* #undef CEGUI_BUILD_IMAGECODEC_DEVIL */
+/* #undef CEGUI_BUILD_IMAGECODEC_FREEIMAGE */
+/* #undef CEGUI_BUILD_IMAGECODEC_CORONA */
+/* #undef CEGUI_BUILD_IMAGECODEC_STB */
+/* #undef CEGUI_BUILD_IMAGECODEC_TGA */
+/* #undef CEGUI_BUILD_IMAGECODEC_PVR */
 
 //////////////////////////////////////////////////////////////////////////
 // The following define what xml parser modules /should/ be available
@@ -73,11 +73,11 @@ setting CMake options and regenerating, rather than editing directly.
 // not actually include them in the final distribution (or some other
 // event that we do not have control over)
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_BUILD_XMLPARSER_EXPAT
-#cmakedefine CEGUI_BUILD_XMLPARSER_XERCES
-#cmakedefine CEGUI_BUILD_XMLPARSER_LIBXML2
-#cmakedefine CEGUI_BUILD_XMLPARSER_RAPIDXML
-#cmakedefine CEGUI_BUILD_XMLPARSER_TINYXML
+#define CEGUI_BUILD_XMLPARSER_EXPAT
+/* #undef CEGUI_BUILD_XMLPARSER_XERCES */
+/* #undef CEGUI_BUILD_XMLPARSER_LIBXML2 */
+/* #undef CEGUI_BUILD_XMLPARSER_RAPIDXML */
+/* #undef CEGUI_BUILD_XMLPARSER_TINYXML */
 
 //////////////////////////////////////////////////////////////////////////
 // The following define what scripting modules /should/ be available
@@ -85,8 +85,8 @@ setting CMake options and regenerating, rather than editing directly.
 // not actually include them in the final distribution (or some other
 // event that we do not have control over)
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_BUILD_LUA_MODULE
-#cmakedefine CEGUI_BUILD_PYTHON_MODULES
+/* #undef CEGUI_BUILD_LUA_MODULE */
+/* #undef CEGUI_BUILD_PYTHON_MODULES */
 
 #endif
 

@@ -36,14 +36,14 @@ This file contains CEGUI version defines
 //////////////////////////////////////////////////////////////////////////
 // Define CEGUI version
 //////////////////////////////////////////////////////////////////////////
-#define CEGUI_VERSION_MAJOR ${CEGUI_VERSION_MAJOR}
-#define CEGUI_VERSION_MINOR ${CEGUI_VERSION_MINOR}
-#define CEGUI_VERSION_PATCH ${CEGUI_VERSION_PATCH}
+#define CEGUI_VERSION_MAJOR 0
+#define CEGUI_VERSION_MINOR 8
+#define CEGUI_VERSION_PATCH 7
 
 // this is used to check consistency between runtime binary and headers
 // used for compiling.  You should not generally use this in client code
 // or rely on its value meaning anything in particular.
-#define CEGUI_VERSION_ABI 2${CEGUI_VERSION_MAJOR}${CEGUI_VERSION_MINOR}
+#define CEGUI_VERSION_ABI 208
 
 #endif	// end of guard _CEGUIVersion_h_
 

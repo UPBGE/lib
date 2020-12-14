@@ -40,11 +40,11 @@ setting CMake options and regenerating, rather than editing directly.
 #   define DEBUG 1
 #endif
 
-#cmakedefine CEGUI_HAS_BUILD_SUFFIX
+#define CEGUI_HAS_BUILD_SUFFIX
 #ifdef CEGUI_HAS_BUILD_SUFFIX
 #   ifndef CEGUI_BUILD_SUFFIX
 #       if defined(DEBUG) || defined(_DEBUG)
-#           define CEGUI_BUILD_SUFFIX "${CEGUI_BUILD_SUFFIX}"
+#           define CEGUI_BUILD_SUFFIX "_d"
 #       else
 #           define CEGUI_BUILD_SUFFIX ""
 #       endif
@@ -55,12 +55,12 @@ setting CMake options and regenerating, rather than editing directly.
 // CEGUI supports custom memory allocation (optional)
 //////////////////////////////////////////////////////////////////////////
 // if this is defined, allocation can be customised
-#cmakedefine CEGUI_CUSTOM_ALLOCATORS
+/* #undef CEGUI_CUSTOM_ALLOCATORS */
 // if this is defined, allocations will pass debug info to allocators
-#cmakedefine CEGUI_CUSTOM_ALLOCATORS_DEBUG
+/* #undef CEGUI_CUSTOM_ALLOCATORS_DEBUG */
 // the file that contains allocators and allocation config
 // (not used if CEGUI_CUSTOM_ALLOCATORS isn't defined)
-#define CEGUI_CUSTOM_ALLOCATORS_INCLUDE "@CEGUI_CUSTOM_ALLOCATORS_INCLUDE@"
+#define CEGUI_CUSTOM_ALLOCATORS_INCLUDE "CEGUI/MemoryStdAllocator.h"
 
 //////////////////////////////////////////////////////////////////////////
 // CEGUI allows 3 different string class configurations
@@ -72,26 +72,26 @@ setting CMake options and regenerating, rather than editing directly.
 // std::basic_string allocated according to allocator config
 #define CEGUI_STRING_CLASS_STD_AO 3
 
-#define CEGUI_STRING_CLASS @CEGUI_STRING_CLASS@
+#define CEGUI_STRING_CLASS 1
 
 //////////////////////////////////////////////////////////////////////////
 // Set this to the default XMLParser to be used.
 //////////////////////////////////////////////////////////////////////////
 #ifndef CEGUI_DEFAULT_XMLPARSER
-#	define CEGUI_DEFAULT_XMLPARSER ${CEGUI_OPTION_DEFAULT_XMLPARSER}
+#	define CEGUI_DEFAULT_XMLPARSER ExpatParser
 #endif
 
 //////////////////////////////////////////////////////////////////////////
 // Set this to the default ImageCodec to be used.
 //////////////////////////////////////////////////////////////////////////
 #ifndef CEGUI_DEFAULT_IMAGE_CODEC
-#   define CEGUI_DEFAULT_IMAGE_CODEC ${CEGUI_OPTION_DEFAULT_IMAGECODEC}
+#   define CEGUI_DEFAULT_IMAGE_CODEC SILLYImageCodec
 #endif
 
 //////////////////////////////////////////////////////////////////////////
 // The following says which TinyXML api version has been found
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_TINYXML_HAS_2_6_API 1
+#define CEGUI_TINYXML_HAS_2_6_API 1
 
 //////////////////////////////////////////////////////////////////////////
 // The following controls the version of Lua that is going to be used.
@@ -111,13 +111,13 @@ setting CMake options and regenerating, rather than editing directly.
 // (Will be all zeroes if Ogre was not found)
 //////////////////////////////////////////////////////////////////////////
 #ifndef CEGUI_OGRE_VERSION_MAJOR
-#   define CEGUI_OGRE_VERSION_MAJOR ${CEGUI_FOUND_OGRE_VERSION_MAJOR}
+#   define CEGUI_OGRE_VERSION_MAJOR 0
 #endif
 #ifndef CEGUI_OGRE_VERSION_MINOR
-#   define CEGUI_OGRE_VERSION_MINOR ${CEGUI_FOUND_OGRE_VERSION_MINOR}
+#   define CEGUI_OGRE_VERSION_MINOR 0
 #endif
 #ifndef CEGUI_OGRE_VERSION_PATCH
-#   define CEGUI_OGRE_VERSION_PATCH ${CEGUI_FOUND_OGRE_VERSION_PATCH}
+#   define CEGUI_OGRE_VERSION_PATCH 0
 #endif
 #ifndef CEGUI_OGRE_VERSION
 #   define CEGUI_OGRE_VERSION ((CEGUI_OGRE_VERSION_MAJOR << 16) | (CEGUI_OGRE_VERSION_MINOR << 8) | CEGUI_OGRE_VERSION_PATCH)
@@ -129,7 +129,7 @@ setting CMake options and regenerating, rather than editing directly.
 // compiled in (default).  If you want to build CEGUI /without/ freetype
 // support, comment the following line.
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_HAS_FREETYPE
+#define CEGUI_HAS_FREETYPE
 
 //////////////////////////////////////////////////////////////////////////
 // PCRE library
@@ -138,7 +138,7 @@ setting CMake options and regenerating, rather than editing directly.
 // To disable the use of PCRE (and therefore the validation factilities),
 // comment the following line.  (Attempts to set validation string will throw).
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_HAS_PCRE_REGEX
+#define CEGUI_HAS_PCRE_REGEX
 
 //////////////////////////////////////////////////////////////////////////
 // The following controls whether the default logger be (possibly) used.
@@ -149,7 +149,7 @@ setting CMake options and regenerating, rather than editing directly.
 // CEGUI::Logger based class and instantiate it before creating the main
 // CEGUI::System object.
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_HAS_DEFAULT_LOGGER
+#define CEGUI_HAS_DEFAULT_LOGGER
 
 //////////////////////////////////////////////////////////////////////////
 // The following defines control bidirectional text support.
@@ -167,19 +167,19 @@ setting CMake options and regenerating, rather than editing directly.
 // Uncommenting CEGUI_USE_FRIBIDI uses an external copy of fribidi to
 // provide the bidirectional support (not supplied).
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_BIDI_SUPPORT
+/* #undef CEGUI_BIDI_SUPPORT */
 
 // Uncomment this to use the embedded minibidi library.
-#cmakedefine CEGUI_USE_MINIBIDI
+/* #undef CEGUI_USE_MINIBIDI */
 // - or -
 // Uncomment this to use an external fribidi library.
-#cmakedefine CEGUI_USE_FRIBIDI
+/* #undef CEGUI_USE_FRIBIDI */
 
 // Controls whether to use GLEW as an OpenGL loading library.
-#cmakedefine CEGUI_USE_GLEW
+#define CEGUI_USE_GLEW
 
 // Controls whether to use Epoxy as an OpenGL loading library.
-#cmakedefine CEGUI_USE_EPOXY
+/* #undef CEGUI_USE_EPOXY */
 
 //////////////////////////////////////////////////////////////////////////
 // The following controls whether the MinizipResourceProvider will be
@@ -189,20 +189,20 @@ setting CMake options and regenerating, rather than editing directly.
 // The MinizipResourceProvider provides the ability to load resource files
 // from locations within .zip files.
 //////////////////////////////////////////////////////////////////////////
-#cmakedefine CEGUI_HAS_MINIZIP_RESOURCE_PROVIDER
+/* #undef CEGUI_HAS_MINIZIP_RESOURCE_PROVIDER */
 
 // Define the default place where cegui will look for loadable modules
 // this can be changed at runtime via the CEGUI_MODULE_DIR environment var.
 #if defined(_WIN32) || defined(__WIN32__)
-#   define CEGUI_MODULE_DIR "${CMAKE_BINARY_DIR}/bin/"
+#   define CEGUI_MODULE_DIR "E:/Development/CEGUI/cegui-0.8.7/build2/bin/"
 #elif !defined(__ANDROID__)
-#   define CEGUI_MODULE_DIR "${CMAKE_INSTALL_PREFIX}/${CEGUI_MODULE_INSTALL_DIR}/"
+#   define CEGUI_MODULE_DIR "C:/Program Files (x86)/cegui/lib/cegui-0.8/"
 #endif
 
 // This is defined when iconv is expecting a const char** and not a char**
 // as type for its inbuf parameter. This is only used when building cegui
 // itself, and likely will not be useful externally.
-#cmakedefine CEGUI_ICONV_USES_CONST_INBUF
+/* #undef CEGUI_ICONV_USES_CONST_INBUF */
 
 #endif	// end of guard _CEGUIConfig_h_
 
